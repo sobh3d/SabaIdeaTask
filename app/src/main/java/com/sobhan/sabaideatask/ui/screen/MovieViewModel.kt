@@ -1,4 +1,4 @@
-package com.sobhan.sabaideatask.ui
+package com.sobhan.sabaideatask.ui.screen
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

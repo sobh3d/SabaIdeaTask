@@ -1,85 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.cardview.widget.CardView
+    <data>
+
+        <variable
+            name="movie"
+            type="com.sobhan.sabaideatask.model.Datum" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/_10sdp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginEnd="@dimen/_10sdp"
-        android:elevation="@dimen/_8sdp"
-        app:cardCornerRadius="@dimen/_8sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:elevation="@dimen/_8sdp"
+            app:cardCornerRadius="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/coverImage"
-                android:layout_width="@dimen/_70sdp"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginStart="@dimen/_20sdp"
-                android:background="@mipmap/ic_launcher"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:riv_corner_radius="@dimen/_8sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:layout_marginBottom="@dimen/_10sdp"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/_10sdp"
-                android:layout_marginEnd="@dimen/_10sdp"
-                android:text="sdkjfhkshfkjsakjfhasdkjdhfkjasdk"
-                android:textColor="@color/black"
-                android:textSize="@dimen/_16ssp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/coverImage"
-                app:layout_constraintTop_toTopOf="@id/coverImage" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/coverImage"
+                    android:layout_width="@dimen/_70sdp"
+                    android:layout_height="@dimen/_100sdp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:background="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:riv_corner_radius="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp" />
 
-            <TextView
-                android:id="@+id/tvCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/_10sdp"
-                android:text="Movie"
-                android:textSize="@dimen/_14ssp"
-                app:layout_constraintBottom_toBottomOf="@id/coverImage"
-                app:layout_constraintStart_toStartOf="@id/tvTitle" />
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="@{movie.attributes.movieTitleEn}"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_16ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/coverImage"
+                    app:layout_constraintTop_toTopOf="@id/coverImage" />
+
+                <TextView
+                    android:id="@+id/tvCategory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    android:text="@{movie.type}"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/coverImage"
+                    app:layout_constraintStart_toStartOf="@id/tvTitle" />
 
 
-            <TextView
-                android:id="@+id/tvRate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/_20sdp"
-                android:text="4.6"
-                android:textSize="@dimen/_18ssp"
-                app:layout_constraintBottom_toBottomOf="@id/tvCategory"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvCategory" />
+                <TextView
+                    android:id="@+id/tvRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:text="@{movie.attributes.rate_avrage}"
+                    android:textSize="@dimen/_18ssp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvCategory"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvCategory" />
 
-            <ImageView
-                android:id="@+id/ivRate"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
-                android:contentDescription="@string/rate"
-                app:layout_constraintTop_toTopOf="@id/tvRate"
-                app:layout_constraintBottom_toBottomOf="@id/tvRate"
-                app:layout_constraintEnd_toStartOf="@id/tvRate"
-                android:src="@drawable/ic_star" />
+                <ImageView
+                    android:id="@+id/ivRate"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:contentDescription="@string/rate"
+                    app:layout_constraintTop_toTopOf="@id/tvRate"
+                    app:layout_constraintBottom_toBottomOf="@id/tvRate"
+                    app:layout_constraintEnd_toStartOf="@id/tvRate"
+                    android:src="@drawable/ic_star" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
