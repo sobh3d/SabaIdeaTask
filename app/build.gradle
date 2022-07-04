@@ -85,6 +85,9 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1"
 
 
-    //spin
-    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+}
+
+kapt {
+    correctErrorTypes = true
 }
