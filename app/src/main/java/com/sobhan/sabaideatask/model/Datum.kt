@@ -22,7 +22,6 @@ data class Datum(
 
     @SerializedName("attributes")
     @Expose
-    @ColumnInfo(name = "attributes")
     @Embedded
     val attributes: Attributes
 )
