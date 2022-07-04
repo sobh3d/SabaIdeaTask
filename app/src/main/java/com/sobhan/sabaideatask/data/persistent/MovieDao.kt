@@ -17,8 +17,8 @@ interface MovieDao : BaseDao<Datum>  {
 
 
     @Transaction
-    suspend fun dropAndInsertAllMessage(messages: List<Datum>) {
+    suspend fun dropAndInsertAllMovies(movies: List<Datum>) {
         clear()
-        insertAll(messages)
+        insertAll(movies)
     }
 }
