@@ -1,7 +1,8 @@
-package com.sobhan.sabaideatask
+package com.sobhan.sabaideatask.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.sobhan.sabaideatask.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
