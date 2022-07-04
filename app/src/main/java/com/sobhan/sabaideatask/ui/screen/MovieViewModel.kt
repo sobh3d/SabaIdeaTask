@@ -21,7 +21,32 @@ class MovieViewModel @Inject constructor(
 
     init {
 
+        observe(
+            movieDataSingleSourceOfTruth.fetchMovies("yuu"),
+            Observer {
+                when (it) {
+                    is Result.Success -> {
+                        moviesList.clear()
+                        moviesList.addAll(it.data.result)
+                        _movies.value = ArrayList(moviesList)
+                    }
+                    is Result.Error -> {
+                        if (moviesList.isEmpty()) {
+                            moviesList.clear()
+                            _movies.value = null
+                        }
+                    }
 
+                    is Result.Empty -> {
+                        moviesList.clear()
+                        _movies.value = null
+                    }
+
+                    else -> {
+                    }
+                }
+            }
+        )
 
 
     }

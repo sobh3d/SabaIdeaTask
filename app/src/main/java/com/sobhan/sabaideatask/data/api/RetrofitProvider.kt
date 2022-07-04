@@ -22,14 +22,7 @@ object RetrofitProvider {
             )
         }
 
-        httpClient.addInterceptor(Interceptor { chain ->
-            val original: Request = chain.request()
-            val request: Request = original.newBuilder()
-                .header("jsonType", "simple")
-                .build()
 
-            chain.proceed(request)
-        })
 
         httpClient.build()
     }

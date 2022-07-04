@@ -18,6 +18,10 @@ class MovieAdapter() : ListAdapter<Datum, RecyclerView.ViewHolder>(MovieDiffCall
         notifyDataSetChanged()
     }
 
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         val itemBinding = MovieRowItemBinding.inflate(layoutInflater, parent, false)
