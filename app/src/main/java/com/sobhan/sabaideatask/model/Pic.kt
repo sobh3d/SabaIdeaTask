@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-@Entity(tableName = "Pic")
+
 data class Pic(
     @SerializedName("movie_img_s")
     @Expose

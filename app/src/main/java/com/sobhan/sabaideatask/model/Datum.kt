@@ -1,6 +1,7 @@
 package com.sobhan.sabaideatask.model
 
 import androidx.room.ColumnInfo
+import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.Expose
@@ -22,5 +23,6 @@ data class Datum(
     @SerializedName("attributes")
     @Expose
     @ColumnInfo(name = "attributes")
+    @Embedded
     val attributes: Attributes
 )

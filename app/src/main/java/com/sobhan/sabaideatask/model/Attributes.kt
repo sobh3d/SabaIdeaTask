@@ -4,7 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-@Entity(tableName = "Attributes")
+
 data class Attributes(
     @SerializedName("movie_title_en")
     @Expose
