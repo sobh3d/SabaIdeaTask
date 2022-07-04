@@ -92,6 +92,9 @@ dependencies {
 
     implementation 'com.github.mancj:MaterialSearchBar:0.8.5'
 
+    //rounded Image
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
 
 
 }
