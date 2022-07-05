@@ -21,9 +21,24 @@ class MovieDataSingleSourceOfTruth @Inject constructor(
     fun fetchMovies(query: String): LiveData<Result<MovieResult>> =
         liveData(dispatcher.ui()) {
             emit(Result.Loading)
+            val source = moviePersistentDataSource.getMovieInstantly()
+            if (source is Result.Success) {
+                emit(Result.Success(MovieResult(source.data)))
+            }
+            emit(Result.Loading)
             apiRequest(query)
 
 
+        }
+
+
+    fun getMovies():LiveData<Result<MovieResult>> =
+        liveData(dispatcher.ui()){
+            emit(Result.Loading)
+            val source = moviePersistentDataSource.getMovieInstantly()
+            if(source is Result.Success){
+                emit(Result.Success(MovieResult(source.data)))
+            }
         }
 
 
@@ -36,7 +51,7 @@ class MovieDataSingleSourceOfTruth @Inject constructor(
                     when {
                         movies.isEmpty().not() -> {
                             moviePersistentDataSource.dropAndInsertAllMovies(movies)
-                            val source = moviePersistentDataSource.getMessagesInstantly()
+                            val source = moviePersistentDataSource.getMovieInstantly()
                             if(source is Result.Success){
                                 emit(Result.Success(MovieResult(source.data)))
                             }

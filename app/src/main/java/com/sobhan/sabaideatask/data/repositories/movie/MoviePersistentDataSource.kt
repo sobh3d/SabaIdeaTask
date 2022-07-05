@@ -15,7 +15,7 @@ class MoviePersistentDataSource @Inject constructor(
     private val dispatcher: DispatcherProvider
 ) {
 
-    suspend fun getMessagesInstantly(): Result<List<Datum>> =
+    suspend fun getMovieInstantly(): Result<List<Datum>> =
         withContext(dispatcher.io()) {
             val data = movieDao.getAllInstantly()
             if (data.isEmpty().not()) {

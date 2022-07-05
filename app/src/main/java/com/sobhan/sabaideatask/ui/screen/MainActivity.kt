@@ -2,10 +2,9 @@ package com.sobhan.sabaideatask.ui.screen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import androidx.room.Query
 import com.mancj.materialsearchbar.MaterialSearchBar
 import com.sobhan.sabaideatask.databinding.ActivityMainBinding
 import com.sobhan.sabaideatask.ui.MovieAdapter
@@ -25,6 +24,19 @@ class MainActivity : AppCompatActivity(), MaterialSearchBar.OnSearchActionListen
         binding.searchBar.setOnSearchActionListener(this)
         movieViewModel.movies.observe(this, Observer {
             adapter.setResults(it)
+
+        })
+
+        movieViewModel.isLoading.observe(this,Observer{
+            if(it.not()){
+                binding.rvMovies.visibility = View.VISIBLE
+                binding.spinLoading.visibility = View.GONE
+            }else{
+                binding.rvMovies.visibility = View.GONE
+                binding.spinLoading.visibility = View.VISIBLE
+            }
+
+
         })
     }
 
@@ -45,8 +57,6 @@ class MainActivity : AppCompatActivity(), MaterialSearchBar.OnSearchActionListen
     }
 
     override fun onSearchConfirmed(text: CharSequence?) {
-        Log.d("sdfsf","dssa")
-
         searchMovie(text.toString())
     }
 

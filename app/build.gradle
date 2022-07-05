@@ -95,6 +95,14 @@ dependencies {
     //rounded Image
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
+    //spin
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.13.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.0'
+
 
 
 }
